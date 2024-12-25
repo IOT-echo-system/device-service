@@ -1,0 +1,29 @@
+server:
+  port: ${PORT:9004}
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URL}/premises-service
+  application:
+    name: PREMISES-SERVICE
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_BROKERS:localhost:3030}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: reactive-audit-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+    listener:
+      ack-mode: manual
+
+app:
+  utils:
+    auth-service-base-url: ${AUTH_SERVICE_BASE_URL}
+    internal-access-token: ${INTERNAL_ACCESS_TOKEN}
+  premises:
+    base-url: ${PREMISES_BASE_URL}
+    premises-by-owner: "/premises/{premisesId}/owner"

@@ -1,0 +1,10 @@
+fileignoreconfig:
+- filename: build.gradle.kts
+  checksum: 2029cda5e46876632c11b01b9351f21afd5617770795f81874ba57716ea441eb
+- filename: src/main/resources/application.yml
+  checksum: 71dc4c3e4c2242686f90f95a00139d5fa1dc0c80c7aa8aafe3afc3cfb44d55e6
+- filename: src/test/kotlin/com/robotutor/deviceService/controller/BoardControllerTest.kt
+  checksum: 573e4df49f309f965d3fb01ebbba0db6e0ce23d01bcb8d7e731449281bd880bc
+- filename: src/test/kotlin/com/robotutor/deviceService/service/BoardServiceTest.kt
+  checksum: 86df1f4ad56b9248edd5997818d24c87bbc02983d7f7564636fca0acb28718b6
+version: ""
