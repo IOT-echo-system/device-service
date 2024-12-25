@@ -4,9 +4,9 @@ server:
 spring:
   data:
     mongodb:
-      uri: ${MONGODB_URL}/premises-service
+      uri: ${MONGODB_URL}/device-service
   application:
-    name: PREMISES-SERVICE
+    name: DEVICE-SERVICE
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_BROKERS:localhost:3030}
     producer:
@@ -25,5 +25,5 @@ app:
     auth-service-base-url: ${AUTH_SERVICE_BASE_URL}
     internal-access-token: ${INTERNAL_ACCESS_TOKEN}
   premises:
-    base-url: ${PREMISES_BASE_URL}
+    base-url: ${PREMISES_SERVICE_BASE_URL}
     premises-by-owner: "/premises/{premisesId}/owner"
