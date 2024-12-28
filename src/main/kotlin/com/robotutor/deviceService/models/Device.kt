@@ -9,21 +9,21 @@ import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 
-const val BOARD_COLLECTION = "boards"
+const val DEVICE_COLLECTION = "devices"
 
-@TypeAlias("Board")
-@Document(BOARD_COLLECTION)
-data class Board(
+@TypeAlias("Device")
+@Document(DEVICE_COLLECTION)
+data class Device(
     @Id
     var id: ObjectId? = null,
     @Indexed(unique = true)
+    val deviceId: DeviceId,
     val boardId: BoardId,
     val premisesId: PremisesId,
     val name: String,
-    val type: String,
+    val type: DeviceType,
     val createdBy: String,
-    val state: BoardState = BoardState.OFFLINE,
-    val firmwareVersion: String = "NA",
+    val pins: List<Pin> = emptyList(),
     val createdAt: LocalDateTime = LocalDateTime.now()
 ) {
     companion object {
@@ -39,10 +39,11 @@ data class Board(
     }
 }
 
-enum class BoardState {
-    ONLINE,
-    OFFLINE,
+enum class DeviceType {
+    INPUT,
+    OUTPUT,
 }
 
-typealias BoardId = String
-typealias PremisesId = String
+data class Pin(val pinNo: String, val name: String)
+
+typealias DeviceId = String

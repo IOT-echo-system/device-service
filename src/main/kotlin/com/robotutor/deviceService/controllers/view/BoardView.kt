@@ -2,6 +2,7 @@ package com.robotutor.deviceService.controllers.view
 
 import com.robotutor.deviceService.models.Board
 import com.robotutor.deviceService.models.BoardId
+import com.robotutor.deviceService.models.BoardState
 import com.robotutor.deviceService.models.PremisesId
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
@@ -22,6 +23,8 @@ data class BoardView(
     val premisesId: PremisesId,
     val name: String,
     val type: String,
+    val state: BoardState,
+    val firmwareVersion: String,
     val createdBy: String,
     val createdAt: LocalDateTime
 ) {
@@ -33,7 +36,9 @@ data class BoardView(
                 name = board.name,
                 type = board.type,
                 createdBy = board.createdBy,
-                createdAt = board.createdAt
+                createdAt = board.createdAt,
+                state = board.state,
+                firmwareVersion = board.firmwareVersion
             )
         }
     }
