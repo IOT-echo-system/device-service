@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono
 @RequestMapping("/boards")
 class BoardController(private val boardService: BoardService) {
 
-    @RequirePolicy("BOARD:CREATE")
+    @RequirePolicy("DEVICE:CREATE")
     @PostMapping
     fun createBoard(@RequestBody @Validated boardRequest: BoardRequest, userData: UserData): Mono<BoardView> {
         return boardService.addBoard(boardRequest, userData).map { BoardView.from(it) }

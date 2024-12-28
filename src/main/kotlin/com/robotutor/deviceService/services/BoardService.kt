@@ -23,7 +23,8 @@ class BoardService(
 ) {
     fun addBoard(boardRequest: BoardRequest, userData: UserData): Mono<Board> {
         val boardRequestMap = boardRequest.toMap().toMutableMap()
-        return idGeneratorService.generateId(IdType.BOARD_ID)
+        return premisesGateway.getPremisesByOwner(boardRequest.premisesId)
+            .flatMap { idGeneratorService.generateId(IdType.BOARD_ID) }
             .flatMap { boardId ->
                 boardRequestMap["boardId"] = boardId
                 val board = Board.from(boardId, boardRequest, userData)
