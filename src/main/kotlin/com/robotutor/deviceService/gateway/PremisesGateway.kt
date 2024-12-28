@@ -9,7 +9,6 @@ import reactor.core.publisher.Mono
 
 @Service
 class PremisesGateway(private val webClient: WebClientWrapper, private val premisesConfig: PremisesConfig) {
-
     fun getPremisesByOwner(premisesId: PremisesId): Mono<Premises> {
         return webClient.get(
             baseUrl = premisesConfig.baseUrl,
