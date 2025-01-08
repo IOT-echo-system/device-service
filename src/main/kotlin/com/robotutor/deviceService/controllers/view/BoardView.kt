@@ -12,8 +12,6 @@ data class BoardRequest(
     @field:NotBlank(message = "Name is required")
     @field:Size(min = 4, max = 20, message = "Name should not be less than 4 char or more than 20 char")
     val name: String,
-    @field:NotBlank(message = "Premises is required")
-    val premisesId: PremisesId,
     @field:NotBlank(message = "type is required")
     val type: String
 )

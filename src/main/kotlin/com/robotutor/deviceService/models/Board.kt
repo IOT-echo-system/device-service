@@ -27,10 +27,10 @@ data class Board(
     val createdAt: LocalDateTime = LocalDateTime.now()
 ) {
     companion object {
-        fun from(boardId: BoardId, boardRequest: BoardRequest, userData: UserData): Board {
+        fun from(boardId: BoardId, premisesId: PremisesId, boardRequest: BoardRequest, userData: UserData): Board {
             return Board(
                 boardId = boardId,
-                premisesId = boardRequest.premisesId,
+                premisesId = premisesId,
                 name = boardRequest.name,
                 type = boardRequest.type,
                 createdBy = userData.userId
