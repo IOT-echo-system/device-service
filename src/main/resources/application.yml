@@ -24,6 +24,4 @@ app:
   utils:
     auth-service-base-url: ${AUTH_SERVICE_BASE_URL}
     internal-access-token: ${INTERNAL_ACCESS_TOKEN}
-  premises:
-    base-url: ${PREMISES_SERVICE_BASE_URL}
-    premises-by-owner: "/premises/{premisesId}/owner"
+    premises-service-base-url: ${PREMISES_SERVICE_BASE_URL}
