@@ -38,7 +38,7 @@ class BoardController(private val boardService: BoardService) {
         @PathVariable boardId: String,
         @RequestBody @Validated boardNameRequest: BoardNameRequest,
         premisesData: PremisesData
-    ): Flux<BoardView> {
+    ): Mono<BoardView> {
         return boardService.updateBoardName(boardId, boardNameRequest, premisesData).map { BoardView.from(it) }
     }
 }
