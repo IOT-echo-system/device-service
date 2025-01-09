@@ -19,13 +19,18 @@ data class Board(
     @Indexed(unique = true)
     val boardId: BoardId,
     val premisesId: PremisesId,
-    val name: String,
+    var name: String,
     val type: String,
     val createdBy: String,
     val state: BoardState = BoardState.OFFLINE,
     val firmwareVersion: String = "NA",
     val createdAt: LocalDateTime = LocalDateTime.now()
 ) {
+    fun updateName(name: String): Board {
+        this.name = name
+        return this
+    }
+
     companion object {
         fun from(boardId: BoardId, premisesId: PremisesId, boardRequest: BoardRequest, userData: UserData): Board {
             return Board(

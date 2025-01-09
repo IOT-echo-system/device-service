@@ -1,5 +1,6 @@
 package com.robotutor.deviceService.controllers
 
+import com.robotutor.deviceService.controllers.view.BoardNameRequest
 import com.robotutor.deviceService.controllers.view.BoardRequest
 import com.robotutor.deviceService.controllers.view.BoardView
 import com.robotutor.deviceService.services.BoardService
@@ -29,5 +30,15 @@ class BoardController(private val boardService: BoardService) {
     @GetMapping
     fun getBoards(premisesData: PremisesData): Flux<BoardView> {
         return boardService.getBoards(premisesData).map { BoardView.from(it) }
+    }
+
+    @RequirePolicy("DEVICE:UPDATE")
+    @PutMapping("/{boardId}/name")
+    fun updateBoardName(
+        @PathVariable boardId: String,
+        @RequestBody @Validated boardNameRequest: BoardNameRequest,
+        premisesData: PremisesData
+    ): Flux<BoardView> {
+        return boardService.updateBoardName(boardId, boardNameRequest, premisesData).map { BoardView.from(it) }
     }
 }
