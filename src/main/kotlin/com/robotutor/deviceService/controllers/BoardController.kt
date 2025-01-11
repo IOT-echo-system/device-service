@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono
 @RequestMapping("/premises/*/boards")
 class BoardController(private val boardService: BoardService) {
 
-    @RequirePolicy("DEVICE:CREATE")
+    @RequirePolicy("BOARD:CREATE")
     @PostMapping
     fun createBoard(
         @RequestBody @Validated boardRequest: BoardRequest,
@@ -26,13 +26,13 @@ class BoardController(private val boardService: BoardService) {
         return boardService.addBoard(boardRequest, userData, premisesData).map { BoardView.from(it) }
     }
 
-    @RequirePolicy("DEVICE:READ")
+    @RequirePolicy("BOARD:READ")
     @GetMapping
     fun getBoards(premisesData: PremisesData): Flux<BoardView> {
         return boardService.getBoards(premisesData).map { BoardView.from(it) }
     }
 
-    @RequirePolicy("DEVICE:UPDATE")
+    @RequirePolicy("BOARD:UPDATE")
     @PutMapping("/{boardId}/name")
     fun updateBoardName(
         @PathVariable boardId: String,
