@@ -1,6 +1,6 @@
-package com.robotutor.deviceService.models
+package com.robotutor.feedService.models
 
-import com.robotutor.deviceService.controllers.view.FeedRequest
+import com.robotutor.feedService.controllers.view.FeedRequest
 import com.robotutor.iot.utils.models.PremisesData
 import com.robotutor.iot.utils.models.UserData
 import org.bson.types.ObjectId

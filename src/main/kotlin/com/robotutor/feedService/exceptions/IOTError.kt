@@ -1,4 +1,4 @@
-package com.robotutor.deviceService.exceptions
+package com.robotutor.feedService.exceptions
 
 import com.robotutor.iot.exceptions.ServiceError
 

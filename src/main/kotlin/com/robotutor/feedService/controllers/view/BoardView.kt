@@ -1,9 +1,9 @@
-package com.robotutor.deviceService.controllers.view
+package com.robotutor.feedService.controllers.view
 
-import com.robotutor.deviceService.models.Board
-import com.robotutor.deviceService.models.BoardId
-import com.robotutor.deviceService.models.BoardState
-import com.robotutor.deviceService.models.PremisesId
+import com.robotutor.feedService.models.Board
+import com.robotutor.feedService.models.BoardId
+import com.robotutor.feedService.models.BoardState
+import com.robotutor.feedService.models.PremisesId
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
 import java.time.LocalDateTime

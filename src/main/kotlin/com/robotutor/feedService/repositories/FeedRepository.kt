@@ -1,7 +1,7 @@
-package com.robotutor.deviceService.repositories
+package com.robotutor.feedService.repositories
 
-import com.robotutor.deviceService.models.Feed
-import com.robotutor.deviceService.models.FeedId
+import com.robotutor.feedService.models.Feed
+import com.robotutor.feedService.models.FeedId
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import org.springframework.stereotype.Repository
 import reactor.core.publisher.Flux

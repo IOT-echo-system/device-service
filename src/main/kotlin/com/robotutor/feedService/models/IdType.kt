@@ -1,4 +1,4 @@
-package com.robotutor.deviceService.models
+package com.robotutor.feedService.models
 
 import com.robotutor.iot.service.IdSequenceType
 

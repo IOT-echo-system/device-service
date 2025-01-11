@@ -1,10 +1,10 @@
-package com.robotutor.deviceService.services
+package com.robotutor.feedService.services
 
-import com.robotutor.deviceService.controllers.view.BoardNameRequest
-import com.robotutor.deviceService.controllers.view.BoardRequest
-import com.robotutor.deviceService.models.Board
-import com.robotutor.deviceService.models.IdType
-import com.robotutor.deviceService.repositories.BoardRepository
+import com.robotutor.feedService.controllers.view.BoardNameRequest
+import com.robotutor.feedService.controllers.view.BoardRequest
+import com.robotutor.feedService.models.Board
+import com.robotutor.feedService.models.IdType
+import com.robotutor.feedService.repositories.BoardRepository
 import com.robotutor.iot.auditOnError
 import com.robotutor.iot.auditOnSuccess
 import com.robotutor.iot.exceptions.UnAuthorizedException

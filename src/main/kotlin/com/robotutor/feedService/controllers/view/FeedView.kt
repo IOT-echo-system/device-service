@@ -1,6 +1,6 @@
-package com.robotutor.deviceService.controllers.view
+package com.robotutor.feedService.controllers.view
 
-import com.robotutor.deviceService.models.*
+import com.robotutor.feedService.models.*
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
 

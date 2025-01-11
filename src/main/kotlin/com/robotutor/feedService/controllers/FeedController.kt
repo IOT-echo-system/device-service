@@ -1,8 +1,8 @@
-package com.robotutor.deviceService.controllers
+package com.robotutor.feedService.controllers
 
-import com.robotutor.deviceService.controllers.view.FeedRequest
-import com.robotutor.deviceService.controllers.view.FeedView
-import com.robotutor.deviceService.services.FeedService
+import com.robotutor.feedService.controllers.view.FeedRequest
+import com.robotutor.feedService.controllers.view.FeedView
+import com.robotutor.feedService.services.FeedService
 import com.robotutor.iot.utils.filters.annotations.RequirePolicy
 import com.robotutor.iot.utils.models.PremisesData
 import com.robotutor.iot.utils.models.UserData

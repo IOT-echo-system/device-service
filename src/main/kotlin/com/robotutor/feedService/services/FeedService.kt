@@ -1,9 +1,9 @@
-package com.robotutor.deviceService.services
+package com.robotutor.feedService.services
 
-import com.robotutor.deviceService.controllers.view.FeedRequest
-import com.robotutor.deviceService.models.Feed
-import com.robotutor.deviceService.models.IdType
-import com.robotutor.deviceService.repositories.FeedRepository
+import com.robotutor.feedService.controllers.view.FeedRequest
+import com.robotutor.feedService.models.Feed
+import com.robotutor.feedService.models.IdType
+import com.robotutor.feedService.repositories.FeedRepository
 import com.robotutor.iot.auditOnError
 import com.robotutor.iot.auditOnSuccess
 import com.robotutor.iot.exceptions.UnAuthorizedException

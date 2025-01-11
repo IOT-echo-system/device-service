@@ -15,4 +15,4 @@
 
 ./gradlew clean build
 
-docker buildx build --no-cache --platform=linux/arm64,linux/amd64 -t shiviraj/device-service:latest --push .
+docker buildx build --no-cache --platform=linux/arm64,linux/amd64 -t shiviraj/feed-service:latest --push .

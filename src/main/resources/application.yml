@@ -4,9 +4,9 @@ server:
 spring:
   data:
     mongodb:
-      uri: ${MONGODB_URL}/device-service
+      uri: ${MONGODB_URL}/feed-service
   application:
-    name: DEVICE-SERVICE
+    name: FEED-SERVICE
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_BROKERS:localhost:3030}
     producer:
