@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
 @RestController
-@RequestMapping("/premises/*/boards")
+@RequestMapping("/boards")
 class BoardController(private val boardService: BoardService) {
 
     @RequirePolicy("BOARD:CREATE")
