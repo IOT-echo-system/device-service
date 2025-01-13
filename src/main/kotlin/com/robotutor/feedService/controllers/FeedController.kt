@@ -31,6 +31,7 @@ class FeedController(private val feedService: FeedService) {
         userData: UserData,
         premisesData: PremisesData
     ): Flux<FeedView> {
+        println("--------in feed controller-----------")
         return feedService.getFeeds(userData, premisesData).map { FeedView.from(it) }
     }
 }
