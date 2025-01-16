@@ -16,6 +16,7 @@ import com.robotutor.iot.utils.gateway.views.PremisesRole
 import com.robotutor.iot.utils.models.PremisesData
 import com.robotutor.iot.utils.models.UserData
 import com.robotutor.iot.utils.utils.toMap
+import com.robotutor.loggingstarter.Logger
 import com.robotutor.loggingstarter.logOnError
 import com.robotutor.loggingstarter.logOnSuccess
 import org.springframework.stereotype.Service
@@ -27,6 +28,7 @@ class BoardService(
     private val boardRepository: BoardRepository,
     private val idGeneratorService: IdGeneratorService,
 ) {
+    val logger = Logger(this::class.java)
     fun addBoard(boardRequest: BoardRequest, userData: UserData, premisesData: PremisesData): Mono<Board> {
         val boardRequestMap = boardRequest.toMap().toMutableMap()
 
@@ -42,8 +44,8 @@ class BoardService(
                     .auditOnSuccess("DEVICE_CREATE", boardRequestMap)
             }
             .auditOnError("DEVICE_CREATE", boardRequestMap)
-            .logOnSuccess("Successfully created board!", additionalDetails = boardRequestMap)
-            .logOnError("", "Failed to create board!", additionalDetails = boardRequestMap)
+            .logOnSuccess(logger,"Successfully created board!", additionalDetails = boardRequestMap)
+            .logOnError(logger,"", "Failed to create board!", additionalDetails = boardRequestMap)
 
     }
 
@@ -66,8 +68,8 @@ class BoardService(
             }
             .auditOnSuccess("DEVICE_UPDATE", boardRequestMap)
             .auditOnError("DEVICE_UPDATE", boardRequestMap)
-            .logOnSuccess("Successfully updated board name", additionalDetails = boardRequestMap)
-            .logOnError("", "Failed to update board name", additionalDetails = boardRequestMap)
+            .logOnSuccess(logger,"Successfully updated board name", additionalDetails = boardRequestMap)
+            .logOnError(logger,"", "Failed to update board name", additionalDetails = boardRequestMap)
     }
 }
 

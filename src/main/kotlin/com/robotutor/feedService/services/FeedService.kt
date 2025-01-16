@@ -15,6 +15,7 @@ import com.robotutor.iot.utils.gateway.views.PremisesRole
 import com.robotutor.iot.utils.models.PremisesData
 import com.robotutor.iot.utils.models.UserData
 import com.robotutor.iot.utils.utils.toMap
+import com.robotutor.loggingstarter.Logger
 import com.robotutor.loggingstarter.logOnError
 import com.robotutor.loggingstarter.logOnSuccess
 import org.springframework.stereotype.Service
@@ -26,6 +27,7 @@ class FeedService(
     private val feedRepository: FeedRepository,
     private val idGeneratorService: IdGeneratorService,
 ) {
+    val logger = Logger(this::class.java)
     fun addFeed(feedRequest: FeedRequest, userData: UserData, premisesData: PremisesData): Mono<Feed> {
         val feedRequestMap = feedRequest.toMap().toMutableMap()
         return createMono(premisesData.user.role == PremisesRole.OWNER)
@@ -40,8 +42,8 @@ class FeedService(
                     .auditOnSuccess("FEED_CREATE", feedRequestMap)
             }
             .auditOnError("FEED_CREATE", feedRequestMap)
-            .logOnSuccess("Successfully created feed!", additionalDetails = feedRequestMap)
-            .logOnError("", "Failed to create feed!", additionalDetails = feedRequestMap)
+            .logOnSuccess(logger, "Successfully created feed!", additionalDetails = feedRequestMap)
+            .logOnError(logger, "", "Failed to create feed!", additionalDetails = feedRequestMap)
     }
 
     fun getFeeds(userData: UserData, premisesData: PremisesData): Flux<Feed> {
