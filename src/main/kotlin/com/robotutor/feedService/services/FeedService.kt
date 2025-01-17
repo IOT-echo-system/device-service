@@ -9,7 +9,6 @@ import com.robotutor.iot.auditOnSuccess
 import com.robotutor.iot.service.IdGeneratorService
 import com.robotutor.iot.utils.filters.validatePremisesOwner
 import com.robotutor.iot.utils.models.PremisesData
-
 import com.robotutor.iot.utils.models.UserData
 import com.robotutor.iot.utils.utils.toMap
 import com.robotutor.loggingstarter.Logger
