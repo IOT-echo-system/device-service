@@ -1,5 +1,6 @@
 package com.robotutor.feedService.controllers
 
+import com.robotutor.feedService.controllers.view.FeedNameRequest
 import com.robotutor.feedService.controllers.view.FeedRequest
 import com.robotutor.feedService.controllers.view.FeedView
 import com.robotutor.feedService.services.FeedService
@@ -27,11 +28,17 @@ class FeedController(private val feedService: FeedService) {
 
     @RequirePolicy("FEED:READ")
     @GetMapping
-    fun getFeeds(
-        userData: UserData,
-        premisesData: PremisesData
-    ): Flux<FeedView> {
-        println("--------in feed controller-----------")
+    fun getFeeds(userData: UserData, premisesData: PremisesData): Flux<FeedView> {
         return feedService.getFeeds(userData, premisesData).map { FeedView.from(it) }
+    }
+
+    @RequirePolicy("FEED:UPDATE")
+    @PutMapping("/{feedId}/name")
+    fun updateName(
+        @PathVariable feedId: String,
+        @Validated @RequestBody feedNameRequest: FeedNameRequest,
+        premisesData: PremisesData,
+    ): Mono<FeedView> {
+        return feedService.updateName(feedId, feedNameRequest, premisesData).map { FeedView.from(it) }
     }
 }

@@ -21,19 +21,24 @@ data class Feed(
     val feedId: FeedId,
     val boardId: BoardId,
     val premisesId: PremisesId,
-    val name: String,
+    var name: String,
     val type: FeedType,
     val value: Number,
     val createdBy: String,
     val createdAt: LocalDateTime = LocalDateTime.now()
 ) {
+    fun updateName(name: String): Feed {
+        this.name = name
+        return this
+    }
+
     companion object {
         fun from(feedId: FeedId, feedRequest: FeedRequest, userData: UserData, premisesData: PremisesData): Feed {
             return Feed(
                 feedId = feedId,
                 boardId = feedRequest.boardId,
                 premisesId = premisesData.premisesId,
-                name = feedRequest.name,
+                name = feedRequest.feedName.name,
                 type = feedRequest.type,
                 value = 0,
                 createdBy = userData.userId

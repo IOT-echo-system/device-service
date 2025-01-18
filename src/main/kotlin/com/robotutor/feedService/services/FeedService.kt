@@ -1,5 +1,6 @@
 package com.robotutor.feedService.services
 
+import com.robotutor.feedService.controllers.view.FeedNameRequest
 import com.robotutor.feedService.controllers.view.FeedRequest
 import com.robotutor.feedService.models.Feed
 import com.robotutor.feedService.models.IdType
@@ -40,6 +41,20 @@ class FeedService(
 
     fun getFeeds(userData: UserData, premisesData: PremisesData): Flux<Feed> {
         return feedRepository.findAllByPremisesId(premisesData.premisesId)
+    }
+
+    fun updateName(feedId: String, feedNameRequest: FeedNameRequest, premisesData: PremisesData): Mono<Feed> {
+        val feedRequestMap = feedNameRequest.toMap().toMutableMap()
+        return validatePremisesOwner(premisesData) {
+            feedRepository.findByFeedIdAndPremisesId(feedId, premisesData.premisesId)
+        }
+            .flatMap {
+                feedRepository.save(it.updateName(feedNameRequest.name))
+            }
+            .auditOnSuccess("FEED_UPDATE", feedRequestMap)
+            .auditOnError("FEED_UPDATE", feedRequestMap)
+            .logOnSuccess(logger, "Successfully updated feed name", additionalDetails = feedRequestMap)
+            .logOnError(logger, "", "Failed to update feed name", additionalDetails = feedRequestMap)
     }
 }
 
