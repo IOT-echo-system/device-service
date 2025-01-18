@@ -39,7 +39,8 @@ class BoardService(
                 boardRepository.save(board)
             }
             .flatMap { board ->
-                kafkaPublisher.publish(KafkaTopicName.ADD_BOARD, message = AddBoardMessage.from(board)).map { board }
+                kafkaPublisher.publish(KafkaTopicName.ADD_BOARD, board.boardId, AddBoardMessage.from(board))
+                    .map { board }
             }
             .auditOnSuccess("BOARD_CREATE", boardRequestMap)
             .auditOnError("BOARD_CREATE", boardRequestMap)
