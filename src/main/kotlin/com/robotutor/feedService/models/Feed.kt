@@ -38,7 +38,7 @@ data class Feed(
                 feedId = feedId,
                 boardId = feedRequest.boardId,
                 premisesId = premisesData.premisesId,
-                name = feedRequest.feedName.name,
+                name = feedRequest.name,
                 type = feedRequest.type,
                 value = 0,
                 createdBy = userData.userId
