@@ -2,10 +2,11 @@ package com.robotutor.feedService.controllers.view
 
 import com.robotutor.feedService.models.*
 import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.Size
 
 data class FeedRequest(
-    @field:NotBlank(message = "type is required")
+    @field:NotNull(message = "Type is required")
     val type: FeedType,
 
     @field:NotBlank(message = "BoardId is required")
