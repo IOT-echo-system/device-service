@@ -63,8 +63,8 @@ class BoardService(
             .flatMap {
                 boardRepository.save(it.updateName(boardNameRequest.name))
             }
-            .auditOnSuccess("DEVICE_UPDATE", boardRequestMap)
-            .auditOnError("DEVICE_UPDATE", boardRequestMap)
+            .auditOnSuccess("BOARD_UPDATE", boardRequestMap)
+            .auditOnError("BOARD_UPDATE", boardRequestMap)
             .logOnSuccess(logger, "Successfully updated board name", additionalDetails = boardRequestMap)
             .logOnError(logger, "", "Failed to update board name", additionalDetails = boardRequestMap)
     }
