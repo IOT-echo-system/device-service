@@ -31,3 +31,4 @@ app:
     validated-premises-paths:
       - "/boards"
       - "/feeds"
+      - "/widgets"
