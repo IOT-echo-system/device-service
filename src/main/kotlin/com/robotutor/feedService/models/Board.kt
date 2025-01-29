@@ -51,3 +51,4 @@ enum class BoardState {
 
 typealias BoardId = String
 typealias PremisesId = String
+typealias ZoneId = String
