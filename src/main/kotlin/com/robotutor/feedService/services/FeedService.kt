@@ -27,7 +27,7 @@ class FeedService(
     val logger = Logger(this::class.java)
     fun addFeed(feedRequest: FeedRequest, userData: UserData, premisesData: PremisesData): Mono<Feed> {
         val feedRequestMap = feedRequest.toMap().toMutableMap()
-        return validatePremisesOwner(premisesData) { idGeneratorService.generateId(IdType.BOARD_ID) }
+        return validatePremisesOwner(premisesData) { idGeneratorService.generateId(IdType.FEED_ID) }
             .flatMap { feedId ->
                 feedRequestMap["feedId"] = feedId
                 val feed = Feed.from(feedId, feedRequest, userData, premisesData)
