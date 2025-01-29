@@ -2,6 +2,7 @@ package com.robotutor.feedService.controllers
 
 import com.robotutor.feedService.controllers.view.FeedNameRequest
 import com.robotutor.feedService.controllers.view.FeedRequest
+import com.robotutor.feedService.controllers.view.FeedValueRequest
 import com.robotutor.feedService.controllers.view.FeedView
 import com.robotutor.feedService.services.FeedService
 import com.robotutor.iot.utils.filters.annotations.RequirePolicy
@@ -40,5 +41,15 @@ class FeedController(private val feedService: FeedService) {
         premisesData: PremisesData,
     ): Mono<FeedView> {
         return feedService.updateName(feedId, feedNameRequest, premisesData).map { FeedView.from(it) }
+    }
+
+    @RequirePolicy("FEED:UPDATE_VALUE")
+    @PutMapping("/{feedId}/value")
+    fun updateValue(
+        @PathVariable feedId: String,
+        @Validated @RequestBody feedValueRequest: FeedValueRequest,
+        premisesData: PremisesData,
+    ): Mono<FeedView> {
+        return feedService.updateValue(feedId, feedValueRequest, premisesData).map { FeedView.from(it) }
     }
 }

@@ -23,6 +23,11 @@ data class FeedNameRequest(
     val name: String,
 )
 
+data class FeedValueRequest(
+    @field:NotBlank(message = "Value is required")
+    val value: Number,
+)
+
 data class FeedView(
     val feedId: FeedId,
     val boardId: BoardId,

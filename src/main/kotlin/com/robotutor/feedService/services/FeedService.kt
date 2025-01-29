@@ -2,6 +2,7 @@ package com.robotutor.feedService.services
 
 import com.robotutor.feedService.controllers.view.FeedNameRequest
 import com.robotutor.feedService.controllers.view.FeedRequest
+import com.robotutor.feedService.controllers.view.FeedValueRequest
 import com.robotutor.feedService.models.Feed
 import com.robotutor.feedService.models.IdType
 import com.robotutor.feedService.repositories.FeedRepository
@@ -55,6 +56,13 @@ class FeedService(
             .auditOnError("FEED_UPDATE", feedRequestMap)
             .logOnSuccess(logger, "Successfully updated feed name", additionalDetails = feedRequestMap)
             .logOnError(logger, "", "Failed to update feed name", additionalDetails = feedRequestMap)
+    }
+
+    fun updateValue(feedId: String, feedValueRequest: FeedValueRequest, premisesData: PremisesData): Mono<Feed> {
+        return feedRepository.findByFeedIdAndPremisesId(feedId, premisesData.premisesId)
+            .flatMap { feed ->
+                feedRepository.save(feed.updateValue(feedValueRequest.value))
+            }
     }
 }
 

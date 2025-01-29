@@ -23,12 +23,17 @@ data class Feed(
     val premisesId: PremisesId,
     var name: String,
     val type: FeedType,
-    val value: Number,
+    var value: Number,
     val createdBy: String,
     val createdAt: LocalDateTime = LocalDateTime.now()
 ) {
     fun updateName(name: String): Feed {
         this.name = name
+        return this
+    }
+
+    fun updateValue(value: Number): Feed {
+        this.value = value
         return this
     }
 
