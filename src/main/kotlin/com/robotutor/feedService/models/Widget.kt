@@ -25,7 +25,7 @@ data class Widget(
     val feedId: FeedId,
     val zoneId: ZoneId,
     val type: WidgetType,
-    val config: Map<String, Any?>,
+    val config: Map<String, Any>,
     val createdBy: String,
     val createdAt: LocalDateTime = LocalDateTime.now()
 ) {
