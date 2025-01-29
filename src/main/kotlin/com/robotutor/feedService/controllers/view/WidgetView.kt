@@ -23,8 +23,7 @@ data class WidgetRequest(
     @field:Size(min = 4, max = 20, message = "Name should not be less than 4 char or more than 20 char")
     val name: String,
 
-    @field:NotNull(message = "Config is required")
-    val config: Map<String, Any> = emptyMap()
+    val config: Map<String, Any?> = emptyMap()
 )
 
 data class WidgetNameRequest(
@@ -41,7 +40,7 @@ data class WidgetView(
     val feedId: FeedId,
     val zoneId: ZoneId,
     val type: WidgetType,
-    val config: Map<String, Any>,
+    val config: Map<String, Any?>,
 ) {
     companion object {
         fun from(widget: Widget): WidgetView {
