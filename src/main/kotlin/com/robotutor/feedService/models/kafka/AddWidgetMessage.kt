@@ -3,8 +3,8 @@ package com.robotutor.feedService.models.kafka
 import com.robotutor.feedService.models.PremisesId
 import com.robotutor.feedService.models.Widget
 import com.robotutor.feedService.models.WidgetId
+import com.robotutor.feedService.models.ZoneId
 import com.robotutor.iot.models.Message
-import java.time.ZoneId
 
 data class AddWidgetMessage(
     val widgetId: WidgetId,
