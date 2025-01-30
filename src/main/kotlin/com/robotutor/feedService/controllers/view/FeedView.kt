@@ -24,7 +24,7 @@ data class FeedNameRequest(
 )
 
 data class FeedValueRequest(
-    @field:NotBlank(message = "Value is required")
+    @field:NotNull(message = "Value is required")
     val value: Number,
 )
 
