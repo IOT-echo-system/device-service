@@ -16,7 +16,7 @@ data class WidgetRequest(
     val zoneId: ZoneId,
 
     @field:NotBlank(message = "Name is required")
-    @field:Size(min = 4, max = 20, message = "Name should not be less than 4 char or more than 20 char")
+    @field:Size(min = 2, max = 20, message = "Name should not be less than 2 char or more than 20 char")
     val name: String,
 
     @field:NotNull(message = "Config is required")
@@ -25,7 +25,7 @@ data class WidgetRequest(
 
 data class WidgetNameRequest(
     @field:NotBlank(message = "Name is required")
-    @field:Size(min = 4, max = 20, message = "Name should not be less than 4 char or more than 20 char")
+    @field:Size(min = 2, max = 20, message = "Name should not be less than 2 char or more than 20 char")
     val name: String,
 )
 
