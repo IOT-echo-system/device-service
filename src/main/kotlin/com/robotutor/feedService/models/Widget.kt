@@ -38,7 +38,7 @@ data class Widget(
                 widgetId = widgetId,
                 name = widgetRequest.name,
                 premisesId = premisesData.premisesId,
-                feedId = widgetRequest.boardId,
+                feedId = widgetRequest.feedId,
                 zoneId = widgetRequest.zoneId,
                 type = widgetRequest.type,
                 config = widgetRequest.config,
