@@ -9,9 +9,6 @@ data class WidgetRequest(
     @field:NotNull(message = "Type is required")
     val type: WidgetType,
 
-    @field:NotBlank(message = "BoardId is required")
-    val boardId: BoardId,
-
     @field:NotBlank(message = "FeedId is required")
     val feedId: FeedId,
 
@@ -35,7 +32,6 @@ data class WidgetNameRequest(
 data class WidgetView(
     val widgetId: WidgetId,
     val name: String,
-    val boardId: BoardId,
     val premisesId: PremisesId,
     val feedId: FeedId,
     val zoneId: ZoneId,
@@ -47,7 +43,6 @@ data class WidgetView(
             return WidgetView(
                 widgetId = widget.widgetId,
                 name = widget.name,
-                boardId = widget.boardId,
                 premisesId = widget.premisesId,
                 feedId = widget.feedId,
                 zoneId = widget.zoneId,

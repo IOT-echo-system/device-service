@@ -19,7 +19,6 @@ data class Widget(
     @Indexed(unique = true)
     val widgetId: WidgetId,
     var name: String,
-    val boardId: BoardId,
     val premisesId: PremisesId,
     val feedId: FeedId,
     val zoneId: ZoneId,
@@ -38,7 +37,6 @@ data class Widget(
             return Widget(
                 widgetId = widgetId,
                 name = widgetRequest.name,
-                boardId = widgetRequest.boardId,
                 premisesId = premisesData.premisesId,
                 feedId = widgetRequest.boardId,
                 zoneId = widgetRequest.zoneId,
